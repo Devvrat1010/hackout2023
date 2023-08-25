@@ -1,5 +1,4 @@
-import Login_Navbar from "../components/Login_Navbar";
-
+import Login_Navbar from "../components/Login_NavBar"
 export default function Reception() {
   return (
     <div>
