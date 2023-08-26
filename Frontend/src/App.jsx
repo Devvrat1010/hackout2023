@@ -5,6 +5,8 @@ import Reception from "./pages/Reception";
 import Nurse from "./pages/Nurse";
 import Doctor from "./pages/Doctor";
 import ReceptionCounter from "./pages/ReceptionCounter";
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
+import GetStarted from "./pages/GetStarted";
 // import ReceptionLogin from "./pages/receptionLogin"
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
         <Route path="/registration" element={<ReceptionCounter />} />
         <Route path="/nurse" element={<Nurse />} />
         <Route path="/doctors" element={<Doctor />} />
+        <Route path="/getStarted" element={<GetStarted />} />
       </Routes>
     </>
   );

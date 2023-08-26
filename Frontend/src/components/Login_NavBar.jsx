@@ -18,7 +18,7 @@ export default function Login_Navbar() {
           class="group text-white opacity-95 tracking-tight transition-all duration-300 ease-in-out"
           href="#"
         >
-          <span class="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+          <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
             <Link to="/registration">Reception</Link>
           </span>
         </button>
@@ -35,7 +35,7 @@ export default function Login_Navbar() {
           href="#"
         >
           <span class="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
-          <Link to="/doctors">Doctor</Link>
+          <Link to="/doctors">Doctors</Link>
           </span>
         </button>
       </div>

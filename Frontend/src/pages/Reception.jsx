@@ -4,12 +4,12 @@ import TypeWriter from "typewriter-effect/dist/core";
 import { AiFillInstagram } from "react-icons/ai";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaFacebookF } from "react-icons/fa";
-import { SignOutButton, useAuth } from "@clerk/clerk-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Reception() {
-  const { isSignedIn } = useAuth();
-
+  
+  const navigate = useNavigate();
   const typewriter = React.useRef(null);
   useEffect(() => {
     const typewriterInstance = new TypeWriter(typewriter.current, {
@@ -64,7 +64,9 @@ export default function Reception() {
               <FaFacebookF className="text-3xl mt-8 ml-12 text-blue-900 hover:text-blue-700" />
             </div>
             <div className="mt-5 ml-64">
-              <button className="bg-blue-800 text-white px-6 py-4 rounded-sm transition duration-300 ease-in-out transform hover:translate-y-1 hover:bg-blue-600 hover:text-black font-semibold">
+              <button onClick={()=>{
+                navigate("/getStarted")
+              }} className="bg-blue-800 text-white px-6 py-4 rounded-sm transition duration-300 ease-in-out transform hover:translate-y-1 hover:bg-blue-600 hover:text-black font-semibold">
                 About Us
               </button>
             </div>
@@ -97,10 +99,6 @@ export default function Reception() {
         <div className="-mt-96">
           <img className="mr-10" src="https://doodleipsum.com/700/flat?i=ca2314396afed76441fb67a45df7649d" alt="HealthSync" />
         </div>  */}
-        <div></div>
-        {isSignedIn && (
-          <SignOutButton className="cursor-pointer font-mono rounded-lg px-2 text-center py-2 border border-solid border-white border-1 hover:bg-white hover:text-black transition-all" />
-        )}
       </div>
     </div>
   );
