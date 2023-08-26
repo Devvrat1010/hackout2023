@@ -1,6 +1,8 @@
 import React from "react";
 import SymptopmCard from "../components/SymptomCard";
 import Healthcard from "../components/HealthCard";
+import BloodCells from "../components/Blood_cells";
+import logo from "../assets/images/output-removebg-preview.png";
 
 export default function Doctor() {
   const avatar_images ={
@@ -20,11 +22,10 @@ export default function Doctor() {
     <div className="grid grid-cols-2 p-5 ml-10 gap-x-10">
       <div className="flex justify-between gap-10">
         <div>
-          <h1>LOGO</h1>
-          <br />
           <h1 className="font-bold text-4xl">Hi, Doctor Name</h1>
           <br />
           <h1 className="font-bold text-4xl">Today's Appointments</h1>
+          <br />
         </div>
         <div>
           <button className="bg-blue-900 text-white p-2 rounded-md mt-10 hover:text-blue-900 hover:bg-white hover:border-2 hover:border-blue-900">
@@ -40,12 +41,33 @@ export default function Doctor() {
         <h1 className="text-blue-900 font-bold text-center mt-3">Jami</h1>
         <h1 className="text-blue-900 font-bold">Aabha number</h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 bg-slate-200 p-5 rounded-xl font-poppins">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-5 bg-slate-200 p-5 rounded-xl font-poppins">
         <Healthcard />
         <Healthcard />
         
       </div>
+      <div className="flex gap-7  hover:shadow-xl bg-blue-100 p-5 rounded-xl justify-center">
+        <SymptopmCard />
+        <BloodCells />
+        <SymptopmCard />
+      </div>
       <div>
+        <h1 className="font-bold text-4xl mt-7">Your Prescription</h1>
+        <div className="flex gap-7 mt-5 rounded-lg bg-blue-100 p-5">
+          <div>
+            <input placeholder="Morning" className="border-2 border-blue-900 mb-3"/><br/>
+            <input placeholder="Afternoon"className="border-2 border-blue-900 mb-3"/><br/>
+            <input placeholder="Eevening" className="border-2 border-blue-900 mb-3"/><br/>
+          </div>
+          <div>
+            <input placeholder="Special Precautions" className="border-2 border-blue-900 mb-3"/><br/>
+            <input placeholder="Special Notes" className="border-2 border-blue-900 mb-3"/><br/>
+          </div>
+        </div>
+      </div>
+      <div className="flex gap-7 mt-5 hover:shadow-xl bg-blue-100 p-5 rounded-xl justify-center">
+        <SymptopmCard />
+        <BloodCells />
         <SymptopmCard />
       </div>
     </div>

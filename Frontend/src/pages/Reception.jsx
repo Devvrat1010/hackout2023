@@ -25,7 +25,6 @@ export default function Reception() {
       .pause(500)
       .typeString("Digitally")
       .pause(3000)
-      .deleteChars(9)
       .start();
   }, []);
 
@@ -36,7 +35,6 @@ export default function Reception() {
         WELCOME TO HEALTHSYNC
         <br></br>
         <span className="leading-loose text-blue-900 font-bold">
-          {" "}
           <span className="text-4xl" ref={typewriter}></span>
         </span>
       </div>
@@ -48,26 +46,26 @@ export default function Reception() {
             of technology to elevate patient care,<br></br> simplify medical
             processes.Our platform is a testment to the<br></br> fusion of
             innovation and compassionate healthcare, designed <br></br> to
-            empower medical professionals, streamline patient experiences,{" "}
+            empower medical professionals, streamline patient experiences,
             <br></br>
           </h1>
           <div className="flex -ml-16">
             <div className="flex gap-3">
-              <AiFillInstagram className="text-3xl mt-8 ml-16 text-blue-900 hover:text-blue-700" />
+              <AiFillInstagram className="text-3xl mt-8 ml-16 text-blue-900 hover:text-blue-700 hover:cursor-pointer" />
               <p className=" mt-6 text-4xl">|</p>
             </div>
             <div className="flex gap-3 -ml-10">
-              <BiLogoGmail className="text-3xl mt-8 ml-14 text-blue-900 hover:text-blue-700" />
+              <BiLogoGmail className="text-3xl mt-8 ml-14 text-blue-900 hover:text-blue-700 hover:cursor-pointer" />
               <p className=" mt-6 text-4xl">|</p>
             </div>
             <div className="flex -ml-10">
-              <FaFacebookF className="text-3xl mt-8 ml-12 text-blue-900 hover:text-blue-700" />
+              <FaFacebookF className="text-3xl mt-8 ml-12 text-blue-900 hover:text-blue-700 hover:cursor-pointer" />
             </div>
-            <div className="mt-5 ml-64">
+            <div className="mt-5 ml-8">
               <button onClick={()=>{
                 navigate("/getStarted")
-              }} className="bg-blue-800 text-white px-6 py-4 rounded-sm transition duration-300 ease-in-out transform hover:translate-y-1 hover:bg-blue-600 hover:text-black font-semibold">
-                About Us
+              }} className="bg-blue-800 text-white px-6 py-4 rounded-sm transition duration-300 ease-in-out transform hover:translate-y-1 hover:bg-blue-600 hover:text-white font-semibold">
+                GET STARTED
               </button>
             </div>
           </div>
