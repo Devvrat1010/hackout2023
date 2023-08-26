@@ -89,55 +89,83 @@ export default function NurseForm(){
     }
 
     return(
-        <Box>
-            <FormGroup sx={{ml:"200px",width:"100%", display: 'grid', gridTemplateRows: 'repeat(2, 1fr)' }}>
+        // <Box>
+        //     <FormGroup sx={{ml:"200px",width:"100%", display: 'grid', gridTemplateRows: 'repeat(2, 1fr)' }}>
                 
-                <TextField variant="outlined" label="ABHA..." name="abhaNumber" defaultValue="" placeholder="ABHA..." onChange={abhaChange} sx={{my:"20px",mt:"40px",width:"300px"}}
-                    // error={nameError && nameError.length ? true : false}
-                    // helperText={nameError}
-                />
-                <TextField variant="outlined" label="Symptoms..." name="symptoms" defaultValue="" placeholder="Symptoms..." onChange={symptomsChange} sx={{my:"20px",mt:"40px",width:"300px"}}
-                    // error={phoneError && phoneError.length ? true : false}
-                    // helperText={phoneError}
-                />
-                <TextField variant="outlined" label="Vitals..." name="vitals" defaultValue="" placeholder="Vitals..." onChange={vitalsChange} sx={{my:"20px",mt:"40px",width:"300px"}}
-                    // error={mailError && mailError.length ? true : false}
-                    // helperText={mailError}
-                />
-                <TextField variant="outlined" label="Age..." name="age" defaultValue="" placeholder="Age..." onChange={ageChange} sx={{my:"20px",mt:"40px",width:"300px"}}  
-                    // error={mailError && mailError.length ? true : false}
-                    // helperText={mailError}
-                />
-                <TextField variant="outlined" label="Blood Pressure..." name="blood_pressure" defaultValue="" placeholder="Blood Pressure..." onChange={bloodPressureChange} sx={{my:"20px",mt:"40px",width:"300px"}}
-                    // error={mailError && mailError.length ? true : false}
-                    // helperText={mailError}
-                />
-                <TextField variant="outlined" label="Height..." name="height" defaultValue="" placeholder="Height..." onChange={heightChange} sx={{my:"20px",mt:"40px",width:"300px"}}
-                    // error={mailError && mailError.length ? true : false}
-                    // helperText={mailError}
-                />
-                <TextField variant="outlined" label="Weight..." name="weight" defaultValue="" placeholder="Weight..." onChange={weightChange} sx={{my:"20px",mt:"40px",width:"300px"}}
-                    // error={mailError && mailError.length ? true : false}
-                    // helperText={mailError}
-                />
+        //         <TextField variant="outlined" label="ABHA..." name="abhaNumber" defaultValue="" placeholder="ABHA..." onChange={abhaChange} sx={{my:"20px",mt:"40px",width:"300px"}}
+        //             // error={nameError && nameError.length ? true : false}
+        //             // helperText={nameError}
+        //         />
+        //         <TextField variant="outlined" label="Symptoms..." name="symptoms" defaultValue="" placeholder="Symptoms..." onChange={symptomsChange} sx={{my:"20px",mt:"40px",width:"300px"}}
+        //             // error={phoneError && phoneError.length ? true : false}
+        //             // helperText={phoneError}
+        //         />
+        //         <TextField variant="outlined" label="Vitals..." name="vitals" defaultValue="" placeholder="Vitals..." onChange={vitalsChange} sx={{my:"20px",mt:"40px",width:"300px"}}
+        //             // error={mailError && mailError.length ? true : false}
+        //             // helperText={mailError}
+        //         />
+        //         <TextField variant="outlined" label="Age..." name="age" defaultValue="" placeholder="Age..." onChange={ageChange} sx={{my:"20px",mt:"40px",width:"300px"}}  
+        //             // error={mailError && mailError.length ? true : false}
+        //             // helperText={mailError}
+        //         />
+        //         <TextField variant="outlined" label="Blood Pressure..." name="blood_pressure" defaultValue="" placeholder="Blood Pressure..." onChange={bloodPressureChange} sx={{my:"20px",mt:"40px",width:"300px"}}
+        //             // error={mailError && mailError.length ? true : false}
+        //             // helperText={mailError}
+        //         />
+        //         <TextField variant="outlined" label="Height..." name="height" defaultValue="" placeholder="Height..." onChange={heightChange} sx={{my:"20px",mt:"40px",width:"300px"}}
+        //             // error={mailError && mailError.length ? true : false}
+        //             // helperText={mailError}
+        //         />
+        //         <TextField variant="outlined" label="Weight..." name="weight" defaultValue="" placeholder="Weight..." onChange={weightChange} sx={{my:"20px",mt:"40px",width:"300px"}}
+        //             // error={mailError && mailError.length ? true : false}
+        //             // helperText={mailError}
+        //         />
 
 
 
                 
+        //     </FormGroup>
+        //     <Box sx={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
+        //         <Button onClick={handleSubmit} variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
+        //             Save
+        //         </Button>
+        //             {/* <NavLink to={{pathname :"/takeSurvey"}}>
+        //                 <Button variant="contained" sx={{width:"fit-content",fontSize:"20px",mb:""}}>
+        //                             Submit
+        //                 </Button>
+        //             </NavLink> */}
+        //         <Button variant="contained" onClick={getPatientdata}>
+        //             <Card />
+        //         </Button>
+        //     </Box>
+        // </Box>
+        <div style={{ marginLeft: '300px' }} className="relative h-full max-h-screen rounded-xl transition-all duration-200 bg-white" id="panel">
+        {/* ... (existing code) */}
+        <div className="w-full px-10 py-6 mx-auto" style={{ minHeight: '78vh' }}>
+          <div className="max-w-md mx-auto">
+            <h3 className="text-2xl font-semibold mb-4">Patient Details</h3>
+            <FormGroup style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+              <TextField variant="outlined" label="ABHA Number" name="abhaNumber" defaultValue="" placeholder="Enter ABHA Number" onChange={abhaChange} style={{ width: '100%' }} />
+              <TextField variant="outlined" label="Symptoms" name="symptoms" defaultValue="" placeholder="Enter Symptoms" onChange={symptomsChange} style={{ width: '100%' }} />
+              <TextField variant="outlined" label="Vitals" name="vitals" defaultValue="" placeholder="Enter Vitals" onChange={vitalsChange} style={{ width: '100%' }} />
+              <TextField variant="outlined" label="Age" name="age" defaultValue="" placeholder="Enter Age" onChange={ageChange} style={{ width: '100%' }} />
+              <TextField variant="outlined" label="Blood Pressure" name="blood_pressure" defaultValue="" placeholder="Enter Blood Pressure" onChange={bloodPressureChange} style={{ width: '100%' }} />
+              <TextField variant="outlined" label="Height" name="height" defaultValue="" placeholder="Enter Height" onChange={heightChange} style={{ width: '100%' }} />
+              <TextField variant="outlined" label="Weight" name="weight" defaultValue="" placeholder="Enter Weight" onChange={weightChange} style={{ width: '100%' }} />
             </FormGroup>
-            <Box sx={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
-                <Button onClick={handleSubmit} variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
-                    Save
-                </Button>
-                    {/* <NavLink to={{pathname :"/takeSurvey"}}>
-                        <Button variant="contained" sx={{width:"fit-content",fontSize:"20px",mb:""}}>
-                                    Submit
-                        </Button>
-                    </NavLink> */}
-                <Button variant="contained" onClick={getPatientdata}>
-                    <Card />
-                </Button>
-            </Box>
-        </Box>
+            <div className="flex justify-center mt-6 space-x-4">
+              <Button onClick={handleSubmit} variant="contained" style={{ padding: '0.5rem 1.5rem', fontSize: '1rem', backgroundColor: 'blue', color: 'white', borderRadius: '0.25rem' }}>
+                Save
+              </Button>
+              <Button variant="contained" onClick={getPatientdata} style={{ padding: '0.5rem 1.5rem', fontSize: '1rem', backgroundColor: 'gray', color: 'white', borderRadius: '0.25rem' }}>
+                Fetch Data
+              </Button>
+            </div>
+          </div>
+          {/* ... (other content) */}
+        </div>
+        {/* ... (other code) */}
+      </div>
+    
     )
 }
