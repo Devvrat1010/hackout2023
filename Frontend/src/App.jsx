@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Reception from "./pages/Reception";
 import Nurse from "./pages/Nurse";
 import Doctor from "./pages/Doctor";
+import ReceptionCounter from "./pages/ReceptionCounter";
 // import ReceptionLogin from "./pages/receptionLogin"
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Reception />} />
+          <Route path="/registration" element={<ReceptionCounter />} />
           <Route path="/nurse" element={<Nurse />} />
           <Route path="/doctors" element={<Doctor />} /> 
         </Routes>
