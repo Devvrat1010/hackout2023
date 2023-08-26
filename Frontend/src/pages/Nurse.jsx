@@ -7,12 +7,13 @@ import DoctorDetails from "../components/DoctorDetails";
 
 export default function Nurse() {
 
-
-
+    console.log(localStorage.getItem("countPatient"))
+    console.log(localStorage.getItem("patientQueue"))
   return (
     <div >
         <NurseForm/>
         <DoctorDetails/>
+
     </div>
   );
 }
