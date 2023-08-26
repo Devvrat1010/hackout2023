@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../components/Card";
+import SymptopmCard from "../components/SymptomCard";
 import Healthcard from "../components/HealthCard";
 
 export default function Doctor() {
@@ -10,6 +10,7 @@ export default function Doctor() {
     "Image4" : "https://doodleipsum.com/700/avatar-4?i=58e15545cbaaccdde1e619aa57b6f85f",
     "Image5" : "https://doodleipsum.com/700/avatar-4?i=84120fcec3c4cc6fbd9cb06db3e98ff0"
   }
+
 
   const imageKeys = Object.keys(avatar_images);
   const randomImageKey = imageKeys[Math.floor(Math.random() * imageKeys.length)];
@@ -45,7 +46,7 @@ export default function Doctor() {
         
       </div>
       <div>
-        <Healthcard />
+        <SymptopmCard />
       </div>
     </div>
   );
