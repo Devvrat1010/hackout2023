@@ -1,8 +1,9 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import Card from "../components/Card";
 import {Box,Button,FormControlLabel,FormGroup,TextField  } from "@mui/material"
 import {NavLink} from "react-router-dom"
 import axios from "axios";
+import { DataGrid } from "@mui/x-data-grid";
 
 
 export default function NurseForm(){
@@ -87,6 +88,43 @@ export default function NurseForm(){
             console.log(err);
         });
     }
+    const patientQueue=JSON.parse(localStorage.getItem("patientQueue"))
+
+    const columns=[
+        {field:"id",headerName:"ID",width:300},
+        ]
+        const [currPatients,setCurrPatients]=useState([])
+    const fetchingPatients=async (patients)=>{
+        console.log("PatientsQueue")
+        console.log(patientQueue)
+
+        // patientQueue.map((item)=>{
+        fetch(`http://localhost:3000/patients/getOne/?abha_number=`+patients)
+        .then((response) => response.json())
+        .then(res=>(
+                setCurrPatients([...currPatients,res[0]])
+        ))
+        // .then((data) => console.log(data));
+        // })
+
+
+
+    }
+    useEffect(()=>{
+        for (let i = 0; i < patientQueue.length; i++) {
+            // const element = patientQueue[i];
+            // fetch(`http://localhost:3000/patients/getOne/?abha_number=${element}`)
+            // .then((response) => response.json())
+            // .then(res=>(
+                //         setCurrPatients([...currPatients,res[0]])
+                // ))
+                console.log(typeof(patientQueue[i]))
+                console.log("hehe")
+                fetchingPatients(patientQueue[i])
+            }
+        console.log("currPatients")
+        console.log(currPatients)
+        },[])
 
     return(
         <Box>
@@ -126,18 +164,21 @@ export default function NurseForm(){
                 
             </FormGroup>
             <Box sx={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
-                <Button onClick={handleSubmit} variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
+                <Button onClick={fetchingPatients} variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
                     Save
                 </Button>
-                    {/* <NavLink to={{pathname :"/takeSurvey"}}>
-                        <Button variant="contained" sx={{width:"fit-content",fontSize:"20px",mb:""}}>
-                                    Submit
-                        </Button>
-                    </NavLink> */}
+
                 <Button variant="contained" onClick={getPatientdata}>
                     <Card />
                 </Button>
+
             </Box>
+            {/* <DataGrid
+                columns={columns}
+                rows={rows}
+                getRowHeight={() => 'auto'}
+            /> */}
+
         </Box>
     )
 }

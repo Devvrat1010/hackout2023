@@ -26,13 +26,20 @@ export default function FormReception(){
         else{
             setAbhaError("")
             setCountPatient(countPatient+1)
-            setPatientQueue([...patientQueue,Number(abhaNumber)])
-            setPatientQueue([...patientQueue,Number(abhaNumber)])
-            
+            let temp=patientQueue
+            temp.pop()
+            setPatientQueue([])
+            temp.push(Number(abhaNumber))
+            console.log(temp)
+            console.log("temp")
+
+            setPatientQueue([...patientQueue,temp])
+            setPatientQueue([...patientQueue,123])
+
             console.log("working")
-            setTimeout(() => {
+            // setTimeout(() => {
                 cityFetch()
-            }, 1000);
+            // }, 1000);
 
         }
     }
