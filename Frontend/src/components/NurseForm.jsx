@@ -5,6 +5,12 @@ import {NavLink} from "react-router-dom"
 
 
 export default function NurseForm(){
+    
+    const getPatientdata =async () => {
+        await fetch("http://localhost:3000/nursesData")
+       .then((response) => response.json())
+       .then((data) => console.log(data));
+   }    
     let count=0
     const [nameError,setNameError] = useState("")
     const [phoneError,setPhoneError] = useState("")
@@ -14,7 +20,7 @@ export default function NurseForm(){
 
     const [abha,setAbha] = useState("")
     const abhaChange = (e) => {
-        setName(e.target.value)
+        setAbha(e.target.value)
         console.log(name)
         setFormValues({...formValues,"name":e.target.value})
     }
@@ -40,72 +46,68 @@ export default function NurseForm(){
         setFormValues({...formValues,"age":e.target.value})
     }
     
-    const [bloodPressure,setbloodPressure] = useState()
+    const [bloodPressure,setBloodPressure] = useState("")
     const bloodPressureChange = (e) => {
-        bloodPressure(e.target.value)
+        setBloodPressure(e.target.value)
         console.log()
         setFormValues({...formValues,"blood_pressure":e.target.value})
     }
     
+    const [height,setHeight] = useState("")
+    const heightChange = (e) => {
+        setHeight(e.target.value)
+        console.log()
+        setFormValues({...formValues,"height":e.target.value})
+    }
+    
+    const [weight,setWeight] = useState("")
+    const weightChange = (e) => {
+        setWeight(e.target.value)
+        console.log()
+        setFormValues({...formValues,"weight":e.target.value})
+    }
 
   
     count=0
     const [validated,setValidated]=useState(false)
-    // const handleSubmit = () => {
-    //     // curr=0
-    //     count=0
-    //     let temp=Number(formValues.phone)
-    //     // setCount(0   )
-    //     if (!formValues.name || !formValues.name.length) {
-    //         setNameError("Name is required")
-    //     }
-    //     else{
-    //         setNameError("")
-    //         count++
-    //     }
-    //     if (!formValues.phone || !formValues.phone.length ) {
-    //         setPhoneError("Phone Number is required")
-    //     }
-    //     else if(formValues.phone.length<10 || formValues.phone.length>10 || Number.isNaN(temp)){
-    //         setPhoneError("Invalid Phone Number")
-    //     } 
-    //     else{
-    //         setPhoneError("")
-    //         count++
-    //     }
-    //     if (!formValues.mail || !formValues.mail.length) {
-    //         setMailError("Email is required")
-    //         return false
-    //     }
-    //     else{
-    //         count++
-    //         setMailError("")
-    //         setCount(count)
-    //         let curr=count.toString()
-    //         localStorage.setItem("count",curr)
-    //     }
-    //     if (count===3){
-    //         setValidated(true)
-    //         console.log("validated")
-    //     }
-    // }
+    const handleSubmit = () => {
+        console.log(formValues)
+    }
+
     return(
         <Box>
                         <FormGroup sx={{m:"auto",width:"500px"}}>
-                    <TextField variant="outlined" label="Name..." name="name" defaultValue="" placeholder="Name..." onChange={nameChange} sx={{my:"20px",mt:"40px"}}
-                        error={nameError && nameError.length ? true : false}
-                        helperText={nameError}
+                    <TextField variant="outlined" label="Name..." name="name" defaultValue="" placeholder="ABHA..." onChange={abhaChange} sx={{my:"20px",mt:"40px"}}
+                        // error={nameError && nameError.length ? true : false}
+                        // helperText={nameError}
+                    />
+                    <TextField variant="outlined" label="Symptoms..." name="symptoms" defaultValue="" placeholder="Symptoms..." onChange={symptomsChange} sx={{my:"20px"}}
+                        // error={phoneError && phoneError.length ? true : false}
+                        // helperText={phoneError}
+                    />
+                    <TextField variant="outlined" label="Vitals..." name="vitals" defaultValue="" placeholder="Vitals..." onChange={vitalsChange} sx={{my:"20px"}}
+                        // error={mailError && mailError.length ? true : false}
+                        // helperText={mailError}
+                    />
+                    <TextField variant="outlined" label="Age..." name="age" defaultValue="" placeholder="Age..." onChange={ageChange} sx={{my:"20px"}}  
+                        // error={mailError && mailError.length ? true : false}
+                        // helperText={mailError}
+                    />
+                    <TextField variant="outlined" label="Blood Pressure..." name="blood_pressure" defaultValue="" placeholder="Blood Pressure..." onChange={bloodPressureChange} sx={{my:"20px"}}
+                        // error={mailError && mailError.length ? true : false}
+                        // helperText={mailError}
+                    />
+                    <TextField variant="outlined" label="Height..." name="height" defaultValue="" placeholder="Height..." onChange={heightChange} sx={{my:"20px"}}
+                        // error={mailError && mailError.length ? true : false}
+                        // helperText={mailError}
+                    />
+                    <TextField variant="outlined" label="Weight..." name="weight" defaultValue="" placeholder="Weight..." onChange={weightChange} sx={{my:"20px"}}
+                        // error={mailError && mailError.length ? true : false}
+                        // helperText={mailError}
                     />
 
-                    <TextField variant="outlined" label="Phone No..." name="phone" placeholder="Phone no..." onChange={phoneChange} sx={{my:"20px"}}
-                        error={phoneError && phoneError.length ? true : false}
-                        helperText={phoneError}
-                    />
-                    
-                    <TextField variant="outlined" label="Email..." name="email" placeholder="Email..." onChange={mailChange} sx={{my:"20px"}}
-                        error={mailError && mailError.length ? true : false}
-                        helperText={mailError}
-                    />
+
+
                     
                     <Box sx={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
                         <Button onClick={handleSubmit} variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>

@@ -1,9 +1,4 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const app = express()
-const supabase = require('../supabase')
-const router = express.Router()
+const nurseRouter = require("express").Router();
 
 
 app.use(cors())

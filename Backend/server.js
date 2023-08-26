@@ -6,32 +6,27 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 // const logger = require("./middleware/logger.js");
 const supabase = require("./supabase.js");
+// const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 const app = express();
-app.use(
-    cors({
-        origin: "*",
-    })
-);
-
-
-
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+ }
+ 
+app.use(cors(corsOptions)) 
 app.use(bodyParser.json());
-// app.use(logger);
 
+    app.post("/reception/uploadAbha",async (req,res) => {
+        const { error } = await supabase
+        .from('patient_record')
+        .insert({ abha_number: JSON.stringify(req.body.query) })
+        
+        res.send(JSON.stringify(req.body.query))
 
-// const doctor = require("./routes/doctors.js");
-// const nurseRouter = require("./routes/nurses.js");
-// const patientsRouter = require("./routes/patients.js");
-
-// app.use("/doctor", doctor);
-// app.use("/nurse", nurseRouter);
-// app.use("/patients", patientsRouter);
-
-app.get("/", (req, res) => {
-    res.send("Hosted server is running!");
-});
+    })
 
 app.get('/nursesData', async (req, res) => {
     try {
@@ -44,6 +39,22 @@ app.get('/nursesData', async (req, res) => {
         res.status(400).json(error.message)
     }
 })
+
+
+// const doctor = require("./routes/doctors.js");
+// const nurseRouter = require("./routes/nurses.js");
+// const patientsRouter = require("./routes/patients.js");
+// const receptionRouter = require("./routes/reception.js");
+
+// app.use("/doctor", doctor);
+// app.use("/nurse", nurseRouter);
+// app.use("/patients", patientsRouter);
+// app.use("/reception", receptionRouter);
+
+app.get("/", (req, res) => {
+    res.send("Hosted server is running!");
+});
+
 
 
 app.listen(PORT, () => {

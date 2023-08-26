@@ -1,6 +1,7 @@
 import { Box,FormGroup,TextField,Button } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
+
 export default function FormReception(){
 
     const [formValues,setFormValues]=useState({abhaNumber:""})
@@ -22,24 +23,29 @@ export default function FormReception(){
             setAbhaError("")
             // const input = JSON.stringify({"abhaNumber":formValues.abhaNumber})
             console.log(abhaNumber)
+            console.log(typeof(abhaNumber))
             console.log("working")
-
-            const cityFetch=async ()=>{
-                // setLoading(true);
-                axios
-                    .post(`http://localhost:3000/reception/uploadAbha`, {
-                        query: abhaNumber,
-                    })
-                    .then(function (res) {
-                        console.log(res);
-                        setNews(res.data);
-                    })
-                    .catch(function (err) {
-                        console.log(err);
-                    });
-                }
-                // setLoading(false);
+            
         }
+    }
+    const cityFetch=async ()=>{
+        console.log(abhaNumber)
+        console.log(typeof(abhaNumber))
+        console.log("working")
+        setAbhaNumber(Number(abhaNumber))
+        console.log(typeof(abhaNumber))
+        console.log("again")
+        axios
+        .post(`http://localhost:3000/reception/uploadAbha`, {
+            query:abhaNumber
+        })
+        .then(function (res) {
+            console.log(res);
+            
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
     }
     return (
         <Box sx={{display:"flex",w:"100%",justifyContent:"center",alignItems:'center',height:"100%"}}>
@@ -54,7 +60,7 @@ export default function FormReception(){
                     helperText={abhaError}
                 />
             </FormGroup>
-            <Button onClick={validateAbhaNumber}>
+            <Button onClick={cityFetch}>
                 Submit
             </Button>
         </Box>
