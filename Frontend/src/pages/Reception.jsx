@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import Login_Navbar from "../components/Login_NavBar";
 import TypeWriter from "typewriter-effect/dist/core";
-
+import {AiFillInstagram} from "react-icons/ai";
+import {BiLogoGmail} from "react-icons/bi";
+import {FaFacebookF} from "react-icons/fa";
 export default function Reception() {
   const typewriter = React.useRef(null);
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function Reception() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-blue-100 to-blue-50">
+    <div className="h-screen bg-gradient-to-r from-blue-100 to-blue-50">
       <Login_Navbar />
       <div className=" title-font sm:text-4xl text-3xl mb-2 font-light text-gray-900 p-10 font-poppins transition duration-300 ease-in-out transform hover:scale-105">WELCOME TO HEALTHSYNC
        <br></br><span className="leading-normal text-blue-900 font-bold"> <span ref={typewriter}></span></span>
@@ -33,9 +35,24 @@ export default function Reception() {
           <h1 className="text-xl font-bebas opacity-50 leading-5 "> 
           At <span className="text-blue-900 italic font-bold">HealthSync</span>, we're pioneering a new era in healthcare<br></br> by harnessing the power of technology to elevate patient care,<br></br> simplify medical processes.Our platform is a testment to the<br></br> fusion of innovation and compassionate healthcare, designed <br></br> to empower medical professionals, streamline patient experiences, <br></br>
           </h1>
+          <div className="flex">
+          <div className="flex gap-3">
+            <AiFillInstagram className="text-3xl mt-8 ml-16 text-blue-900 hover:text-blue-700"/>
+            <p className=" mt-6 text-4xl">|</p>
+          </div>
+          <div className="flex gap-3 -ml-10">
+            <BiLogoGmail className="text-3xl mt-8 ml-14 text-blue-900 hover:text-blue-700"/>
+            <p className=" mt-6 text-4xl">|</p>
+          </div>
+          <div className="flex gap-3 -ml-10">
+            <FaFacebookF className="text-3xl mt-8 ml-12 text-blue-900 hover:text-blue-700"/>
+
+          </div>
+       </div>
         </div>
         <div className=" -mt-80 max-w-lg mx-auto relative overflow-hidden">
           <img className="mr-10 w-full h-auto transition-transform duration-300 ease-in-out transform hover:scale-105 hover:rotate-3 " src="https://doodleipsum.com/700/flat?i=ca2314396afed76441fb67a45df7649d"/>
+
         </div>
 
         
