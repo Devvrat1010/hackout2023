@@ -64,43 +64,6 @@ export default function FormReception(){
         });
     }
     return (
-<<<<<<< HEAD
-    
-        <div className="flex h-[70vh] w-[100vw] bg-blue-200">
-            <div className="h-[50vh] mx-[30vh] my-[30vh] w-[100vw] bg-blue-500">   
-                <div className="ml-[11vh]">
-            <img src="https://doodleipsum.com/700/avatar-4?i=2048c47c8c7d48e9c5635229c0974ca8" className="h-[15vh]"/>
-        </div>
-                <Box sx={{display:"flex",w:"100%",height:"60%", gap:'1px'}}>
-                    <FormGroup sx={{m:"100px"}}>
-                        <TextField
-                            id="outlined-basic"
-                            label="Abha Number"
-                            variant="outlined"
-                            sx={{width:"300px","background-color":"white"}}
-                            onChange={changeAbhaNumber}
-                            error={abhaError && abhaError.length ? true : false}
-                            helperText={abhaError}
-                        />
-                    </FormGroup>
-                    <div className="mt-[18vh] -ml-12">
-                    <Button onClick={cityFetch} sx={{"background-color":"white"}}>
-                        Submit
-                    </Button>
-                    </div>
-                    
-                </Box>
-                
-            </div>
-            
-            {/* <div className="ml-[50vh]">
-                <img src={registration} className="h-[90vh] w-[80vh]"/> 
-            </div> */}
-        </div>
-        
-    
-
-=======
         <Box sx={{display:"flex",w:"100%",justifyContent:"center",alignItems:'center',height:"100%"}}>
             <FormGroup sx={{m:"200px"}}>
                 <TextField
@@ -117,6 +80,5 @@ export default function FormReception(){
                 Submit
             </Button>
         </Box>
->>>>>>> 35eddc1f3377a6f3a7f42f16dbd54759cfe60f0b
     )
 }
