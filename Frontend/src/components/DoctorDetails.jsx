@@ -11,10 +11,9 @@ export default function DoctorDetails(){
             await fetch("http://localhost:3000/doctors")
             .then((response) => response.json())
             .then(data => setTemp(data) )
-            // console.log(temp)
         }
     useEffect(()=>{
-        getData()
+        // getData()
     },[])
     console.log(temp)
     

@@ -1,8 +1,9 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import Card from "../components/Card";
 import {Box,Button,FormControlLabel,FormGroup,TextField  } from "@mui/material"
 import {NavLink} from "react-router-dom"
 import axios from "axios";
+import { DataGrid } from "@mui/x-data-grid";
 
 
 export default function NurseForm(){
@@ -87,6 +88,53 @@ export default function NurseForm(){
             console.log(err);
         });
     }
+    const patientQueue=JSON.parse(localStorage.getItem("patientQueue"))
+
+    const columns=[
+        {field:"id",headerName:"ID",width:300},
+        ]
+    const [currPatientData,setCurrPatientData]=useState([])
+
+    // const getCurrPatientdata=async ()=>{
+    //     console.log("patientQueue in func")
+    //     console.log(patientQueue)
+    //     await fetch(`http://localhost:3000/patients/selected/?queue=`+patientQueue)
+    //     .then((response) => response.json())
+    //     .then((data) => 
+    //         console.log(data)
+    //     );
+    // }
+    const getCurrPatientdata = async () => {
+        console.log("patientQueue in func");
+        console.log(patientQueue);
+        
+        const queueString = JSON.stringify(patientQueue);
+    
+        setCurrPatientData(await fetch(`http://localhost:3000/patients/selected/?queue=${queueString}`)
+            .then((response) => response.json())
+            .then((data) => 
+                console.log(data)
+            ))
+
+        console.log("currPatientData")
+        console.log(currPatientData)
+    }
+    
+
+    useEffect(()=>{
+        console.log("useEffect")
+        console.log("patientQueue")
+        console.log(patientQueue)
+        console.log(typeof(patientQueue[0]))
+
+        getCurrPatientdata()
+        console.log(currPatientData)
+        console.log("currPatientData")
+    },[])
+
+
+
+    
 
     return(
         // <Box>
@@ -153,19 +201,22 @@ export default function NurseForm(){
               <TextField variant="outlined" label="Height" name="height" defaultValue="" placeholder="Enter Height" onChange={heightChange} style={{ width: '100%' }} />
               <TextField variant="outlined" label="Weight" name="weight" defaultValue="" placeholder="Enter Weight" onChange={weightChange} style={{ width: '100%' }} />
             </FormGroup>
-            <div className="flex justify-center mt-6 space-x-4">
-              <Button onClick={handleSubmit} variant="contained" style={{ padding: '0.5rem 1.5rem', fontSize: '1rem', backgroundColor: 'blue', color: 'white', borderRadius: '0.25rem' }}>
-                Save
-              </Button>
-              <Button variant="contained" onClick={getPatientdata} style={{ padding: '0.5rem 1.5rem', fontSize: '1rem', backgroundColor: 'gray', color: 'white', borderRadius: '0.25rem' }}>
-                Fetch Data
-              </Button>
-            </div>
-          </div>
-          {/* ... (other content) */}
-        </div>
-        {/* ... (other code) */}
-      </div>
-    
+            <Box sx={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
+                <Button onClick={getCurrPatientdata} variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
+                    Save
+                </Button>
+
+                <Button variant="contained" onClick={getPatientdata}>
+                    <Card />
+                </Button>
+
+            </Box>
+            {/* <DataGrid
+                columns={columns}
+                rows={rows}
+                getRowHeight={() => 'auto'}
+            /> */}
+
+        </Box>
     )
 }
