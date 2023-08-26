@@ -10,7 +10,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Reception />} />
+<<<<<<< HEAD
           {/* <Route path="/reception" element={<ReceptionLogin />} /> */}
+=======
+>>>>>>> refs/remotes/origin/main
         </Routes>
       </Router>
     </>

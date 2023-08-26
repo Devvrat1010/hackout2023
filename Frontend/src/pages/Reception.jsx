@@ -5,8 +5,8 @@ export default function Reception() {
       <Login_Navbar />
       <div className="flex gap-10 justify-between p-10">
         <div>
-          <h1>
-          At HealthSync, we're pioneering a new era in healthcare<br></br> by harnessing the power of technology to elevate patient care,<br></br> simplify medical processes, and fortify data security. <br></br>Our platform is a testament to the fusion of innovation and compassionate <br></br>healthcare, designed to empower medical professionals, streamline patient experiences, <br></br>and ensure the confidentiality of sensitive information.
+          <h1 className="text-base font-thin"> 
+          At <span className="text-blue-900 italic font-semibold">HealthSync</span>, we're pioneering a new era in healthcare<br></br> by harnessing the power of technology to elevate patient care,<br></br> simplify medical processes.Our platform is a testment to the<br></br> fusion of innovation and compassionate healthcare, designed <br></br> to empower medical professionals, streamline patient experiences, <br></br>
           </h1>
         </div>
         <div>
