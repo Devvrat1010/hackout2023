@@ -1,6 +1,6 @@
 import { Box,FormGroup,TextField,Button } from "@mui/material";
 import { useState } from "react";
-
+import axios from "axios";
 export default function FormReception(){
 
     const [formValues,setFormValues]=useState({abhaNumber:""})
@@ -25,17 +25,20 @@ export default function FormReception(){
             console.log("working")
 
             const cityFetch=async ()=>{
-            fetch("http://localhost:3000/reception/uploadAbha",{
-                method:"POST"   ,
-                headers:{
-                    'Content-Type':"application/json"
-                },
-                    body:{"abhaNumber":abhaNumber}
-                })
-                .then(res=>res.json())
-                .then(res=>res["output"])
-            console.log(backendData[0]) 
-            }
+                // setLoading(true);
+                axios
+                    .post(`http://localhost:3000/reception/uploadAbha`, {
+                        query: abhaNumber,
+                    })
+                    .then(function (res) {
+                        console.log(res);
+                        setNews(res.data);
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+                }
+                // setLoading(false);
         }
     }
     return (
