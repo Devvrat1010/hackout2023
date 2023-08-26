@@ -26,10 +26,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 //     });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ClerkProvider publishableKey={import.meta.env.VITE_REACT_APP_CLERK_KEY}>
+//   <ClerkProvider publishableKey={import.meta.env.VITE_REACT_APP_CLERK_KEY}>
      <Router>
         <App/>
      </Router>
-  </ClerkProvider>
+//   {/* </ClerkProvider> */}
   
 );
