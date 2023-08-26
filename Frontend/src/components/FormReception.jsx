@@ -7,12 +7,16 @@ export default function FormReception(){
     const [formValues,setFormValues]=useState({abhaNumber:""})
     const [abhaError,setAbhaError] = useState("")
     const [abhaNumber,setAbhaNumber] = useState()
+    const [countPatient,setCountPatient] = useState(1)
+    const [patientQueue,setPatientQueue] = useState([])
+    let curr=0
     const changeAbhaNumber = (e) => {
         setAbhaNumber(e.target.value)
         console.log(e.target.value)
         setFormValues({...formValues,"abhaNumber":e.target.value})
     }
     const validateAbhaNumber = () => {
+        curr=countPatient+1
         if (!formValues.abhaNumber || !formValues.abhaNumber.length ) {
             setAbhaError("Abha Number is required")
         }
@@ -21,19 +25,34 @@ export default function FormReception(){
         }
         else{
             setAbhaError("")
-            // const input = JSON.stringify({"abhaNumber":formValues.abhaNumber})
-            console.log(abhaNumber)
-            console.log(typeof(abhaNumber))
-            console.log("working")
+            setCountPatient(countPatient+1)
+            setPatientQueue([...patientQueue,Number(abhaNumber)])
+            setPatientQueue([...patientQueue,Number(abhaNumber)])
             
+            console.log("working")
+            setTimeout(() => {
+                cityFetch()
+            }, 1000);
+
         }
     }
     const cityFetch=async ()=>{
+        console.log(countPatient)
+        localStorage.setItem("count",countPatient)
+          
+          const stringifiedPatientQueue =
+            JSON.stringify(patientQueue)
+            
+          localStorage.setItem(
+            "patientQueue",
+            stringifiedPatientQueue
+          )
+
         console.log("working")
         setAbhaNumber(Number(abhaNumber))
         axios
         .post(`http://localhost:3000/reception/uploadAbha`, {
-            query:abhaNumber
+            abhaNumber:abhaNumber
         })
         .then(function (res) {
             console.log(res);
@@ -56,7 +75,7 @@ export default function FormReception(){
                     helperText={abhaError}
                 />
             </FormGroup>
-            <Button onClick={cityFetch}>
+            <Button onClick={validateAbhaNumber}>
                 Submit
             </Button>
         </Box>
