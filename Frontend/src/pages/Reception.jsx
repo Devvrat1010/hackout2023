@@ -27,7 +27,7 @@ export default function Reception() {
   return (
     <div className="h-screen">
       <Login_Navbar />
-      <div className=" title-font sm:text-4xl text-4xl mb-2 mt-10 font-semibold text-blue-500 p-10 font-Roboto Slab transition duration-300 ease-in-out transform hover:scale-105">WELCOME TO HEALTHSYNC
+      <div className=" title-font sm:text-4xl text-4xl mb-2 mt-10 font-semibold text-blue-500 p-10 font-Roboto Slab">WELCOME TO HEALTHSYNC
        <br></br><span className="leading-loose text-blue-900 font-bold"> <span className="text-4xl" ref={typewriter}></span></span>
       </div>
       <div className="flex gap-x-10 justify-between p-10">
