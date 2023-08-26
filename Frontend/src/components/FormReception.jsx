@@ -8,12 +8,16 @@ export default function FormReception(){
     const [formValues,setFormValues]=useState({abhaNumber:""})
     const [abhaError,setAbhaError] = useState("")
     const [abhaNumber,setAbhaNumber] = useState()
+    const [countPatient,setCountPatient] = useState(1)
+    const [patientQueue,setPatientQueue] = useState([])
+    let curr=0
     const changeAbhaNumber = (e) => {
         setAbhaNumber(e.target.value)
         console.log(e.target.value)
         setFormValues({...formValues,"abhaNumber":e.target.value})
     }
     const validateAbhaNumber = () => {
+        curr=countPatient+1
         if (!formValues.abhaNumber || !formValues.abhaNumber.length ) {
             setAbhaError("Abha Number is required")
         }
@@ -22,19 +26,34 @@ export default function FormReception(){
         }
         else{
             setAbhaError("")
-            // const input = JSON.stringify({"abhaNumber":formValues.abhaNumber})
-            console.log(abhaNumber)
-            console.log(typeof(abhaNumber))
-            console.log("working")
+            setCountPatient(countPatient+1)
+            setPatientQueue([...patientQueue,Number(abhaNumber)])
+            setPatientQueue([...patientQueue,Number(abhaNumber)])
             
+            console.log("working")
+            setTimeout(() => {
+                cityFetch()
+            }, 1000);
+
         }
     }
     const cityFetch=async ()=>{
+        console.log(countPatient)
+        localStorage.setItem("count",countPatient)
+          
+          const stringifiedPatientQueue =
+            JSON.stringify(patientQueue)
+            
+          localStorage.setItem(
+            "patientQueue",
+            stringifiedPatientQueue
+          )
+
         console.log("working")
         setAbhaNumber(Number(abhaNumber))
         axios
         .post(`http://localhost:3000/reception/uploadAbha`, {
-            query:abhaNumber
+            abhaNumber:abhaNumber
         })
         .then(function (res) {
             console.log(res);
@@ -45,6 +64,7 @@ export default function FormReception(){
         });
     }
     return (
+<<<<<<< HEAD
     
         <div className="flex h-[70vh] w-[100vw] bg-blue-200">
             <div className="h-[50vh] mx-[30vh] my-[30vh] w-[100vw] bg-blue-500">   
@@ -80,5 +100,23 @@ export default function FormReception(){
         
     
 
+=======
+        <Box sx={{display:"flex",w:"100%",justifyContent:"center",alignItems:'center',height:"100%"}}>
+            <FormGroup sx={{m:"200px"}}>
+                <TextField
+                    id="outlined-basic"
+                    label="Abha Number"
+                    variant="outlined"
+                    sx={{width:"300px"}}
+                    onChange={changeAbhaNumber}
+                    error={abhaError && abhaError.length ? true : false}
+                    helperText={abhaError}
+                />
+            </FormGroup>
+            <Button onClick={validateAbhaNumber}>
+                Submit
+            </Button>
+        </Box>
+>>>>>>> 35eddc1f3377a6f3a7f42f16dbd54759cfe60f0b
     )
 }
