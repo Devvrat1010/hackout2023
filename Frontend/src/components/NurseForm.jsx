@@ -217,6 +217,7 @@ export default function NurseForm(){
                 getRowHeight={() => 'auto'}
             /> */}
 
-        </Box>
+        </div>
+        </div>
     )
 }
