@@ -18,6 +18,8 @@ export default {
                 poppins: ["Poppins", "sans-serif"],
                 bebas: ["Bebas Neue", "sans-serif"],
                 bree: ["Bree Serif", "sans-serif"],
+                Roboto: ["Roboto", "sans-serif"],
+                "Roboto Slab": ["Roboto Slab", "sans-serif"],
             },
         },
     },
