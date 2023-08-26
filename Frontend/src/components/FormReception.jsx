@@ -45,7 +45,7 @@ export default function FormReception(){
     }
     return (
         <Box sx={{display:"flex",w:"100%",justifyContent:"center",alignItems:'center',height:"100%"}}>
-            <FormGroup sx={{}}>
+            <FormGroup sx={{m:"200px"}}>
                 <TextField
                     id="outlined-basic"
                     label="Abha Number"
