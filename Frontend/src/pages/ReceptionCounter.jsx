@@ -6,10 +6,10 @@ export default function ReceptionCounter() {
         <Box>
             <FormReception/>
             <NavLink to={"/nurse"}>
-            <Button variant="contained" color="primary" sx={{margin:"10px"}}>
-                Nurse
-            </Button>
-        </NavLink>
+                <Button variant="contained" color="primary" sx={{margin:"10px"}}>
+                    Nurse
+                </Button>
+            </NavLink>
         </Box>
         
     )

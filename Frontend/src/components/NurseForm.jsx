@@ -93,38 +93,48 @@ export default function NurseForm(){
     const columns=[
         {field:"id",headerName:"ID",width:300},
         ]
-        const [currPatients,setCurrPatients]=useState([])
-    const fetchingPatients=async (patients)=>{
-        console.log("PatientsQueue")
-        console.log(patientQueue)
+    const [currPatientData,setCurrPatientData]=useState([])
 
-        // patientQueue.map((item)=>{
-        fetch(`http://localhost:3000/patients/getOne/?abha_number=`+patients)
-        .then((response) => response.json())
-        .then(res=>(
-                setCurrPatients([...currPatients,res[0]])
-        ))
-        // .then((data) => console.log(data));
-        // })
+    // const getCurrPatientdata=async ()=>{
+    //     console.log("patientQueue in func")
+    //     console.log(patientQueue)
+    //     await fetch(`http://localhost:3000/patients/selected/?queue=`+patientQueue)
+    //     .then((response) => response.json())
+    //     .then((data) => 
+    //         console.log(data)
+    //     );
+    // }
+    const getCurrPatientdata = async () => {
+        console.log("patientQueue in func");
+        console.log(patientQueue);
+        
+        const queueString = JSON.stringify(patientQueue);
+    
+        setCurrPatientData(await fetch(`http://localhost:3000/patients/selected/?queue=${queueString}`)
+            .then((response) => response.json())
+            .then((data) => 
+                console.log(data)
+            ))
 
-
-
+        console.log("currPatientData")
+        console.log(currPatientData)
     }
+    
+
     useEffect(()=>{
-        for (let i = 0; i < patientQueue.length; i++) {
-            // const element = patientQueue[i];
-            // fetch(`http://localhost:3000/patients/getOne/?abha_number=${element}`)
-            // .then((response) => response.json())
-            // .then(res=>(
-                //         setCurrPatients([...currPatients,res[0]])
-                // ))
-                console.log(typeof(patientQueue[i]))
-                console.log("hehe")
-                fetchingPatients(patientQueue[i])
-            }
-        console.log("currPatients")
-        console.log(currPatients)
-        },[])
+        console.log("useEffect")
+        console.log("patientQueue")
+        console.log(patientQueue)
+        console.log(typeof(patientQueue[0]))
+
+        getCurrPatientdata()
+        console.log(currPatientData)
+        console.log("currPatientData")
+    },[])
+
+
+
+    
 
     return(
         <Box>
@@ -164,7 +174,7 @@ export default function NurseForm(){
                 
             </FormGroup>
             <Box sx={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
-                <Button onClick={fetchingPatients} variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
+                <Button onClick={getCurrPatientdata} variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
                     Save
                 </Button>
 

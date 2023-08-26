@@ -13,7 +13,7 @@ export default function DoctorDetails(){
             .then(data => setTemp(data) )
         }
     useEffect(()=>{
-        getData()
+        // getData()
     },[])
     console.log(temp)
     

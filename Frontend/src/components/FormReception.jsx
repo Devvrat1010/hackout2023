@@ -129,14 +129,9 @@ export default function FormReception(){
             helperText={abhaError}
           />
         </FormGroup>
-        <Button onClick={validateAbhaNumber} sx={{ "backgroundColor": '#3182ce',
-                  color: '#fff',
-                  padding: '8px 16px',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
-                  transition: 'background-color 0.3s, transform 0.2s',
-                }}>
+        <Button onClick={validateAbhaNumber} variant="contained" 
+                >
+                    
           Submit
         </Button>
       </div>
