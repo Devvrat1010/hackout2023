@@ -11,7 +11,7 @@ import GetStarted from "./pages/GetStarted";
 
 function App() {
   return (
-    <>
+    <div className="m-auto">
       <Routes>
         <Route path="/" element={<Reception />} />
         <Route path="/registration" element={<ReceptionCounter />} />
@@ -19,7 +19,7 @@ function App() {
         <Route path="/doctors" element={<Doctor />} />
         <Route path="/getStarted" element={<GetStarted />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

@@ -5,6 +5,8 @@ import {NavLink} from "react-router-dom"
 import NurseForm from "../components/NurseForm";
 import DoctorDetails from "../components/DoctorDetails";
 import { DataGrid } from "@mui/x-data-grid";
+import Login_NavBar from "../components/Login_NavBar";
+import SelectPatient from "../components/SelectPatient";
 
 export default function Nurse() {
 
@@ -14,11 +16,17 @@ export default function Nurse() {
     console.log(localStorage.getItem("countPatient"))
     console.log(localStorage.getItem("patientQueue"))
   return (
-    <div >
-        <NurseForm/>
+    <div>
 
-        <DoctorDetails/>
-
+            <Login_NavBar/>
+        <div className="flex flex-column ">
+            <NurseForm/>
+            {/* <Box sx={{fontWeight:"bold"}}>
+                Patient In queue
+                <SelectPatient/>
+            </Box> */}
+        </div>
+            <DoctorDetails/>
     </div>
   );
 }

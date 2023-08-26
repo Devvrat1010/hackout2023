@@ -38,9 +38,7 @@ export default function FormReception(){
             setPatientQueue([...patientQueue,123])
 
             console.log("working")
-            // setTimeout(() => {
                 cityFetch()
-            // }, 1000);
 
         }
     }
@@ -70,25 +68,9 @@ export default function FormReception(){
             console.log(err);
         });
     }
+
     return (
-//         <Box sx={{display:"flex",w:"100%",justifyContent:"center",alignItems:'center',height:"100%"}}>
-//             <FormGroup sx={{m:"200px"}}>
-//                 <TextField
-//                     id="outlined-basic"
-//                     label="Abha Number"
-//                     variant="outlined"
-//                     sx={{width:"300px"}}
-//                     onChange={changeAbhaNumber}
-//                     error={abhaError && abhaError.length ? true : false}
-//                     helperText={abhaError}
-//                 />
-//             </FormGroup>
-//             <Button onClick={validateAbhaNumber}>
-//                 Submit
-//             </Button>
-//         </Box>
-//     )
-// }
+        
 <div>
 <nav className="bg-blue-900">
   {/* Navigation content */}
@@ -129,8 +111,7 @@ export default function FormReception(){
             helperText={abhaError}
           />
         </FormGroup>
-        <Button onClick={validateAbhaNumber} variant="contained" 
-                >
+        <Button onClick={validateAbhaNumber} variant="contained" >
                     
           Submit
         </Button>
