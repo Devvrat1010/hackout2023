@@ -10,14 +10,12 @@ import ReceptionCounter from "./pages/ReceptionCounter";
 function App() {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Reception />} />
-          <Route path="/registration" element={<ReceptionCounter />} />
-          <Route path="/nurse" element={<Nurse />} />
-          <Route path="/doctors" element={<Doctor />} /> 
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Reception />} />
+        <Route path="/registration" element={<ReceptionCounter />} />
+        <Route path="/nurse" element={<Nurse />} />
+        <Route path="/doctors" element={<Doctor />} />
+      </Routes>
     </>
   );
 }
