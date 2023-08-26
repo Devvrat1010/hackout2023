@@ -29,12 +29,8 @@ export default function FormReception(){
         }
     }
     const cityFetch=async ()=>{
-        console.log(abhaNumber)
-        console.log(typeof(abhaNumber))
         console.log("working")
         setAbhaNumber(Number(abhaNumber))
-        console.log(typeof(abhaNumber))
-        console.log("again")
         axios
         .post(`http://localhost:3000/reception/uploadAbha`, {
             query:abhaNumber

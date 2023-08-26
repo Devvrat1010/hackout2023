@@ -19,14 +19,14 @@ const corsOptions ={
 app.use(cors(corsOptions)) 
 app.use(bodyParser.json());
 
-    app.post("/reception/uploadAbha",async (req,res) => {
-        const { error } = await supabase
-        .from('patient_record')
-        .insert({ abha_number: JSON.stringify(req.body.query) })
-        
-        res.send(JSON.stringify(req.body.query))
+app.post("/reception/uploadAbha",async (req,res) => {
+    const { error } = await supabase
+    .from('patient_record')
+    .insert({ abha_number: JSON.stringify(req.body.query) })
+    
+    res.send(JSON.stringify(req.body.query))
 
-    })
+})
 
 app.get('/nursesData', async (req, res) => {
     try {
@@ -38,6 +38,23 @@ app.get('/nursesData', async (req, res) => {
     } catch (error) {
         res.status(400).json(error.message)
     }
+})
+app.post('/nurseData', async (req, res) => {
+    console.log(req.body.query)
+    // const {
+    //     abha,
+    //     symptoms,
+    //     vital,
+    //     age,
+    //     blood_pressure,
+    //     height,
+    //     weight
+    // }=req.body.query
+    
+    const { error } = await supabase
+    .from('patient_record')
+    .update({ symptoms: req.body.query.symptoms , vital: req.body.query.vital , age: req.body.query.age , blood_pressure: req.body.query.blood_pressure , height: req.body.query.height , weight: req.body.query.weight})
+    .eq('abha_number', Number(req.body.query.abha))
 })
 
 
