@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../components/Card";
+import Healthcard from "../components/HealthCard";
 
 export default function Doctor() {
   const avatar_images ={
@@ -7,36 +8,44 @@ export default function Doctor() {
     "Image2" : "https://doodleipsum.com/700/avatar-4?i=e961c3b3db59225a0691f90013b88c13",
     "Image3" : "https://doodleipsum.com/700/avatar-4?i=2048c47c8c7d48e9c5635229c0974ca8",
     "Image4" : "https://doodleipsum.com/700/avatar-4?i=58e15545cbaaccdde1e619aa57b6f85f",
+    "Image5" : "https://doodleipsum.com/700/avatar-4?i=84120fcec3c4cc6fbd9cb06db3e98ff0"
   }
+
   const imageKeys = Object.keys(avatar_images);
   const randomImageKey = imageKeys[Math.floor(Math.random() * imageKeys.length)];
   const randomImageUrl = avatar_images[randomImageKey];
+
   return (
-    <div className="flex gap-10 justify-between p-10 mt-10">
-      <div className="border-2 w-1/4 h-350 mb-20 p-5">
-        <img src={randomImageUrl} className="h-1/4 bg-blue-400 rounded-full p-3 "/>
-        <div className="text-2xl font-bold mt-10">
-          NAME OF PATIENT
+    <div className="grid grid-cols-2 p-5 ml-10 gap-x-10">
+      <div className="flex justify-between gap-10">
+        <div>
+          <h1>LOGO</h1>
+          <br />
+          <h1 className="font-bold text-4xl">Hi, Doctor Name</h1>
+          <br />
+          <h1 className="font-bold text-4xl">Today's Appointments</h1>
         </div>
-        <div className="text-xl font-bold mt-10">
-          AABHA NUMBER
-        </div>
-        <div className="text-xl font-bold mt-10">
-          AGE
+        <div>
+          <button className="bg-blue-900 text-white p-2 rounded-md mt-10 hover:text-blue-900 hover:bg-white hover:border-2 hover:border-blue-900">
+            View Accuracy
+          </button>
+          <h1 className="bg-blue-900 text-white p-2 rounded-md mt-5 hover:text-blue-900 hover:bg-white hover:border-2 hover:border-blue-900">
+            Today's date
+          </h1>
         </div>
       </div>
+      <div className="flex flex-col items-center ml-auto">
+        <img src={randomImageUrl} className="w-1/4 rounded-2xl bg-blue-300" alt="Doctor Avatar" />
+        <h1 className="text-blue-900 font-bold text-center mt-3">Jami</h1>
+        <h1 className="text-blue-900 font-bold">Aabha number</h1>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 bg-slate-200 p-5 rounded-xl font-poppins">
+        <Healthcard />
+        <Healthcard />
+        
+      </div>
       <div>
-          <div>
-            P-history
-          </div>
-          <div className="flex gap-10 justify-between">
-            <div>
-              Symptomps
-            </div>
-            <div>
-                Prescription
-                </div>
-          </div>
+        <Healthcard />
       </div>
     </div>
   );
