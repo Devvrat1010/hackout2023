@@ -39,7 +39,7 @@ export default function Login_Navbar() {
           <Link to="/doctors">Doctors</Link>
           </span>
         </button>
-        <div className="bg-left-bottom">
+        <div className="text-white mt-8">
                 {isSignedIn && (
                 <SignOutButton />
                 )}
