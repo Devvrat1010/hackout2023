@@ -23,7 +23,7 @@ export default function NurseForm(){
     const [abha,setAbha] = useState()
     const abhaChange = (e) => {
         setAbha(e.target.value)
-        setFormValues({...formValues,"abha":e.target.value})
+        setFormValues({...formValues,"abha":Number(e.target.value)})
     }
 
     const [symptoms,setSymptoms] = useState("")
@@ -74,6 +74,7 @@ export default function NurseForm(){
     const handleSubmit = () => {
         console.log("working")
         console.log(formValues)
+
         // let nurseData=formValues
         // setAbhaNumber(Number(abhaNumber))
         axios
@@ -88,7 +89,10 @@ export default function NurseForm(){
             console.log(err);
         });
     }
+
     const patientQueue=JSON.parse(localStorage.getItem("patientQueue"))
+    console.log("patientQueue")
+    console.log(patientQueue)
     const [currPatientData,setCurrPatientData]=useState([])
     const queueString = JSON.stringify(patientQueue);
 
@@ -103,9 +107,9 @@ export default function NurseForm(){
     },[])
 
         
-
     console.log("currPatientData after Effect")
     console.log(currPatientData)
+
     const columns=[
         {field:"id",headerName:"ID",width:300},
         {field:"first_name",headerName:"First Name",width:200},
@@ -126,7 +130,11 @@ export default function NurseForm(){
     const [clickedPatient,setClickedPatient]=useState()
     const rowClicked=(e)=>{
         console.log("rowCliekce")
+        setFormValues({...formValues,"abha":Number(e.row.id)})
+        console.log(formValues)
+        console.log("formValues")
         console.log(e.row.id)
+        setAbha(e.row.id)
         localStorage.setItem("clickedPatient",e.row)
         setClickedPatient(e.row.id)
     }
@@ -148,7 +156,7 @@ export default function NurseForm(){
                     <TextField variant="outlined" label="Blood Pressure" name="blood_pressure" defaultValue="" placeholder="Enter Blood Pressure" onChange={bloodPressureChange} style={{ width: '100%' }} />
                     <TextField variant="outlined" label="Height" name="height" defaultValue="" placeholder="Enter Height" onChange={heightChange} style={{ width: '100%' }} />
                     <TextField variant="outlined" label="Weight" name="weight" defaultValue="" placeholder="Enter Weight" onChange={weightChange} style={{ width: '100%' }} />
-                    <Button variant="contained" sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
+                    <Button variant="contained" onClick={handleSubmit} sx={{width:"fit-content",fontSize:"20px",height:"fit-content"}}>
                         Save
                     </Button>
                 </FormGroup>

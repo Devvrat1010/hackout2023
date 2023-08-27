@@ -70,7 +70,7 @@ export default function FormReception(){
     }
 
     return (
-        
+
 <div>
 <nav className="bg-blue-900">
   {/* Navigation content */}
@@ -111,8 +111,7 @@ export default function FormReception(){
             helperText={abhaError}
           />
         </FormGroup>
-        <Button onClick={validateAbhaNumber} variant="contained" >
-                    
+        <Button onClick={validateAbhaNumber} variant="contained" >  
           Submit
         </Button>
       </div>
