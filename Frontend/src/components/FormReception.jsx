@@ -1,9 +1,11 @@
 import { Box,FormGroup,TextField,Button } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import registration from '../assets/images/registration.png'
 
 export default function FormReception(){
+    const navigate = useNavigate();
 
     const [formValues,setFormValues]=useState({abhaNumber:""})
     const [abhaError,setAbhaError] = useState("")
@@ -67,6 +69,7 @@ export default function FormReception(){
         .catch(function (err) {
             console.log(err);
         });
+        navigate("/nurse")
     }
 
     return (

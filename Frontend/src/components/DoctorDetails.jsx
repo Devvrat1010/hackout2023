@@ -42,7 +42,12 @@ export default function DoctorDetails(){
                 expertise:item.expertise
                 })
         })
-
+    const clickedDoctor=(e)=>{
+        console.log(e)
+        const doctorPatient=JSON.stringify(e.row)
+        localStorage.setItem("doctorPatient",doctorPatient)
+        let x=localStorage.getItem("doctorPatient")
+    }
 
     // const rows=
     //     temp.map((item)=>{
@@ -61,7 +66,7 @@ export default function DoctorDetails(){
                     columns={columns}
                     rows={rows}
                     getRowHeight={() => '20px'}
-                    onRowClick={(e)=>console.log(e)}
+                    onRowClick={(e)=>clickedDoctor(e)}
                     // pageSizeOptions={[5,10,20]}
                     initialState={{
                         // ...data.initialState,

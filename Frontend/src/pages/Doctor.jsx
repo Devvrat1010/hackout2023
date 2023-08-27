@@ -13,7 +13,10 @@ export default function Doctor() {
     "Image5" : "https://doodleipsum.com/700/avatar-4?i=84120fcec3c4cc6fbd9cb06db3e98ff0"
   }
 
-
+  
+  const doctorPatient=JSON.parse(localStorage.getItem("doctorPatient"))
+  console.log("doctorPatient")
+  console.log(doctorPatient)
   const imageKeys = Object.keys(avatar_images);
   const randomImageKey = imageKeys[Math.floor(Math.random() * imageKeys.length)];
   const randomImageUrl = avatar_images[randomImageKey];
@@ -22,7 +25,7 @@ export default function Doctor() {
     <div className="grid grid-cols-2 p-5 ml-10 gap-x-10">
       <div className="flex justify-between gap-10">
         <div>
-          <h1 className="font-bold text-4xl">Hi, Doctor Name</h1>
+          <h1 className="font-bold text-4xl">Hi,{doctorPatient.first_name}</h1>
           <br />
           <h1 className="font-bold text-4xl">Today's Appointments</h1>
           <br />

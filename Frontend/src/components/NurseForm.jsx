@@ -4,9 +4,11 @@ import {Box,Button,FormControlLabel,FormGroup,TextField  } from "@mui/material"
 import {NavLink} from "react-router-dom"
 import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
+import { useNavigate } from "react-router-dom";
 
 
 export default function NurseForm(){
+    const navigate = useNavigate();
     
     const getPatientdata =async () => {
         await fetch("http://localhost:3000/nursesData")
@@ -137,6 +139,7 @@ export default function NurseForm(){
         setAbha(e.row.id)
         localStorage.setItem("clickedPatient",e.row)
         setClickedPatient(e.row.id)
+
     }
 
     return(
@@ -167,7 +170,6 @@ export default function NurseForm(){
                     rows={rows}
                     getRowHeight={() => '20px'}
                     onRowClick={(e)=>{
-                        // console.log(e)
                         rowClicked(e)
                     }}/>
             </Box>
