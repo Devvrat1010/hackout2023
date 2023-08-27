@@ -1,9 +1,13 @@
 // import output from '../assets/images/output.png'
 import Logofinal from "../assets/images/Logofinal.png";
 import { Link,useNavigate } from "react-router-dom";
+import React from "react";
+import { SignOutButton, useAuth } from "@clerk/clerk-react";
+
 
 export default function Login_Navbar() {
     const navigate = useNavigate();
+    const { isSignedIn } = useAuth();
   return (
     <div className="flex justify-between h-min bg-blue-800">
       <div className="">
@@ -35,6 +39,11 @@ export default function Login_Navbar() {
           <Link to="/doctors">Doctors</Link>
           </span>
         </button>
+        <div className="bg-left-bottom">
+                {isSignedIn && (
+                <SignOutButton />
+                )}
+        </div>
       </div>
     </div>
   );
