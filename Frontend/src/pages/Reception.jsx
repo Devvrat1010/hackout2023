@@ -63,8 +63,8 @@ export default function Reception() {
                 </div>
                 <div className="mt-5 ml-8">
                 <button onClick={()=>{
-                    navigate("/getStarted")
-                }} className="bg-blue-800 text-white px-6 py-4 rounded-sm transition duration-300 ease-in-out transform hover:translate-y-1 hover:bg-blue-600 hover:text-white font-semibold">
+                    navigate("/signup")
+                }} className="bg-blue-800 text-white px-6 py-4 rounded-lg transition duration-300 ease-in-out transform hover:translate-y-1 hover:bg-blue-600 hover:text-white font-semibold">
                     GET STARTED
                 </button>
                 </div>

@@ -6,8 +6,10 @@ import Nurse from "./pages/Nurse";
 import Doctor from "./pages/Doctor";
 import ReceptionCounter from "./pages/ReceptionCounter";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
-import GetStarted from "./pages/GetStarted";
 // import ReceptionLogin from "./pages/receptionLogin"
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+
 
 function App() {
   return (
@@ -16,8 +18,9 @@ function App() {
         <Route path="/" element={<Reception />} />
         <Route path="/registration" element={<ReceptionCounter />} />
         <Route path="/nurse" element={<Nurse />} />
-        <Route path="/doctors" element={<Doctor />} />
-        <Route path="/getStarted" element={<GetStarted />} />
+        <Route path="/doctor" element={<Doctor />} />
+        <Route path="/signin" element={<SignIn/>} />
+        <Route path="/signup" element={<SignUp/>} />
       </Routes>
     </div>
   );

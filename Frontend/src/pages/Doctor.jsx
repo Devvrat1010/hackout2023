@@ -31,9 +31,9 @@ export default function Doctor() {
           <button className="bg-blue-900 text-white p-2 rounded-md mt-10 hover:text-blue-900 hover:bg-white hover:border-2 hover:border-blue-900">
             View Accuracy
           </button>
-          <h1 className="bg-blue-900 text-white p-2 rounded-md mt-5 hover:text-blue-900 hover:bg-white hover:border-2 hover:border-blue-900">
-            Today's date
-          </h1>
+          <div className="bg-blue-900 text-white p-2 rounded-md mt-5 hover:text-blue-900 hover:bg-white hover:border-2 hover:border-blue-900">
+          {new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}
+          </div>
         </div>
       </div>
       <div className="flex flex-col items-center ml-auto">
@@ -53,7 +53,7 @@ export default function Doctor() {
       </div>
       <div>
         <h1 className="font-bold text-4xl mt-7">Your Prescription</h1>
-        <div className="flex gap-7 mt-5 rounded-lg bg-blue-100 p-5">
+        <div className="flex gap-7 mt-5 rounded-lg bg-blue-100 p-5 mb-5">
           <div>
             <input placeholder="Morning" className="border-2 border-blue-900 mb-3"/><br/>
             <input placeholder="Afternoon"className="border-2 border-blue-900 mb-3"/><br/>
@@ -64,6 +64,7 @@ export default function Doctor() {
             <input placeholder="Special Notes" className="border-2 border-blue-900 mb-3"/><br/>
           </div>
         </div>
+        <label className="text-white  bg-blue-900 p-2 rounded-xl hover:underline transition-all duration-500 ease out">Send to Pharmacy </label>
       </div>
       <div className="flex gap-7 mt-5 hover:shadow-xl bg-blue-100 p-5 rounded-xl justify-center">
         <SymptopmCard />
